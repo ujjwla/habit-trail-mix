@@ -47,6 +47,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        category: {
+          health: "hsl(var(--category-health))",
+          productivity: "hsl(var(--category-productivity))",
+          wellness: "hsl(var(--category-wellness))",
+          learning: "hsl(var(--category-learning))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -84,6 +94,21 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "celebration": "celebration 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+        "pulse-success": "pulse-success 2s infinite",
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-success": "var(--gradient-success)",
+        "gradient-category-health": "var(--gradient-category-health)",
+        "gradient-category-productivity": "var(--gradient-category-productivity)",
+        "gradient-category-wellness": "var(--gradient-category-wellness)",
+        "gradient-category-learning": "var(--gradient-category-learning)",
+      },
+      boxShadow: {
+        "soft": "var(--shadow-soft)",
+        "medium": "var(--shadow-medium)",
+        "strong": "var(--shadow-strong)",
       },
     },
   },
