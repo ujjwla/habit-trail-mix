@@ -2,8 +2,7 @@
 
 Build habits that last — without friction.
 
-![App Preview](./assets/preview.png)
-
+![App Preview](assets/preview.png)
 ## 🛠️ Tech Stack
 React, Vite, TypeScript, ShadCN UI
 
