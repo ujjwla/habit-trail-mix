@@ -1,3 +1,18 @@
+# 🌿 Habit Trail Mix
+
+Build habits that last — without friction.
+
+![App Preview](./assets/preview.png)
+
+## 🛠️ Tech Stack
+React, Vite, TypeScript, ShadCN UI
+
+## 🚀 Features
+- Create and track habits
+- Visualize streaks
+- Private by default
+
+
 # Welcome to your Lovable project
 
 ## Project info
