@@ -3,7 +3,7 @@
 Build habits that last — without friction.
 ## 🛠️ Tech Stack
 React, Vite, TypeScript, ShadCN UI
-![App Preview](assets/preview.png)
+![App Preview](./assets/preview.png)
 
 ## 🚀 Features
 - Create and track habits
