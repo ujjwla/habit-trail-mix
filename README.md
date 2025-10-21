@@ -1,10 +1,9 @@
 # 🌿 Habit Trail Mix
 
 Build habits that last — without friction.
-
-![App Preview](assets/preview.png)
 ## 🛠️ Tech Stack
 React, Vite, TypeScript, ShadCN UI
+![App Preview](assets/preview.png)
 
 ## 🚀 Features
 - Create and track habits
