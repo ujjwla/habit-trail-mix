@@ -50,25 +50,50 @@ export function useHabits() {
   const [habits, setHabits] = useState<Habit[]>([]);
   const [achievements, setAchievements] = useState<Achievement[]>(DEFAULT_ACHIEVEMENTS);
 
-  // Load data from localStorage on mount
+const generateId = () => {
+  try {
+    if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+      // @ts-expect-error - narrow at runtime
+      return crypto.randomUUID();
+    }
+  } catch (_) {}
+  // RFC4122 v4 fallback
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+};
+
+// Load data from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const data = JSON.parse(saved);
-      setHabits(data.habits || []);
-      setAchievements(data.achievements || DEFAULT_ACHIEVEMENTS);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const data = JSON.parse(saved);
+        setHabits(Array.isArray(data?.habits) ? data.habits : []);
+        setAchievements(Array.isArray(data?.achievements) ? data.achievements : DEFAULT_ACHIEVEMENTS);
+      }
+    } catch (_) {
+      // If storage is corrupted, reset in-memory state; next save will overwrite
+      setHabits([]);
+      setAchievements(DEFAULT_ACHIEVEMENTS);
     }
   }, []);
 
   // Save to localStorage whenever data changes
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ habits, achievements }));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ habits, achievements }));
+    } catch (_) {
+      // Ignore quota/serialization errors
+    }
   }, [habits, achievements]);
 
   const addHabit = (habit: Omit<Habit, 'id' | 'createdAt' | 'completedDates' | 'streak' | 'bestStreak'>) => {
     const newHabit: Habit = {
       ...habit,
-      id: crypto.randomUUID(),
+      id: generateId(),
       createdAt: new Date(),
       completedDates: [],
       streak: 0,

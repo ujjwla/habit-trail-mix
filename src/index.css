@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Safari/iOS compatibility fallbacks */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Apply alongside Tailwind backdrop utilities when blur is desired */
+.backdrop-blur-ios {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Ensure selectable text behavior is consistent on Safari */
+.user-select-text-ios {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 /* Habit Tracker Design System - Minimal & Beautiful */
 
 @layer base {
