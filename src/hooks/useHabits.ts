@@ -53,7 +53,6 @@ export function useHabits() {
 const generateId = () => {
   try {
     if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-      // @ts-expect-error - narrow at runtime
       return crypto.randomUUID();
     }
   } catch (_) {}

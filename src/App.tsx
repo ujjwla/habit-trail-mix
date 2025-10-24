@@ -20,7 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <RouterProvider router={router} future={{ v7_startTransition: true, v7_relativeSplatPath: true }} />
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
     </TooltipProvider>
   </QueryClientProvider>
 );
